@@ -9,11 +9,11 @@
   <ul class="list-group inline-list">
     <li class="list-group-item">
       <h4 class="text-center"><%= link_to "#{article.title}", article %></h4>
-
-
-
+        <% if admin_signed_in? %>
         <%= link_to 'Edit', edit_article_path(article), class:"text-right" %>
         <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-right" %>
+        <% end %>
+
       </li>
   </ul>
   <% end %>

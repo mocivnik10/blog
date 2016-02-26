@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if admin_signed_in? %>
+  <%= current_admin.email %>
+  <%= link_to "odjavi se", destroy_admin_session_path, method: :delete %>
+<% else %>
+  <%= link_to "prijavi se", new_admin_session_path %>
+<% end %>
+
 
 <%= yield %>
 
