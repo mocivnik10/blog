@@ -1,27 +1,39 @@
 <div class="container">
 
 
-  <p id="notice"><%= notice %></p>
 
-  <h1>Članki</h1>
+
+  <h1 class="text-center">Članki<small></small> </h1>
+  <br />
+  <% if admin_signed_in? %>
+    <%= link_to '+ Dodaj nov članek', new_article_path %>
+  <% end %>
+  <br />
+  <br />
+
+
 
   <% @articles.each do |article| %>
   <ul class="list-group inline-list">
     <li class="list-group-item">
       <h4 class="text-center"><%= link_to "#{article.title}", article %></h4>
+      <%= truncate(article.body, length: 200) { link_to "Preberi več", article } %>
         <% if admin_signed_in? %>
-        <%= link_to 'Edit', edit_article_path(article), class:"text-right" %>
-        <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-right" %>
+        <br />
+        <br />
+        <ol class="breadcrumb">
+          <li><%= link_to 'Uredi', edit_article_path(article), class:"text-right" %></li>
+          <li><%= link_to 'Izbriši', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-right" %></li>
+        </ol>
         <% end %>
-
       </li>
-  </ul>
-  <% end %>
+    </ul>
+    <% end %>
+
 
 
   <br>
 
-  <%= link_to 'New Article', new_article_path %>
 
 
 </div>
