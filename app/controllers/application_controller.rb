@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    if admin_signed_in?
+    if user_signed_in?
       articles_path
     else
       session[:previous_url] || root_path

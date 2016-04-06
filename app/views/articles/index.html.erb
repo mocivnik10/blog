@@ -5,7 +5,7 @@
 
   <h1 class="text-center">Članki<small></small> </h1>
   <br />
-  <% if admin_signed_in? %>
+  <% if user_signed_in? %>
     <%= link_to '+ Dodaj nov članek', new_article_path %>
   <% end %>
   <br />
@@ -18,7 +18,7 @@
     <li class="list-group-item">
       <h4 class="text-center"><%= link_to "#{article.title}", article %></h4>
       <%= truncate(article.body, length: 200) { link_to "Preberi več", article } %>
-        <% if admin_signed_in? %>
+        <% if user_signed_in? %>
         <br />
         <br />
         <ol class="breadcrumb">

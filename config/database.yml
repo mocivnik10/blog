@@ -1,19 +1,19 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: project_development
+  database: blog_project_development
   pool: 5
 
 
 test: &TEST
   adapter: postgresql
   encoding: utf8
-  database: project_test
+  database: blog_project_test
   pool: 5
-  
+
 
 production:
   adapter: postgresql
   encoding: utf8
-  database: project_production
+  database: blog_project_production
   pool: 5
