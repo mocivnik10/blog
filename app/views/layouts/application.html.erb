@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon33.ico' %>
 </head>
 <body>
   <div class="container">
@@ -43,6 +44,12 @@
 <%= render '/layouts/sign_in_modal' %>
 
 <%= yield %>
+
+  <footer class="footer navbar-fixed-bottom">
+    <div class="container">
+      <p class="text-muted text-center"><%= image_tag "logo2.png", style:"height: 50px;" %></p>
+    </div>
+  </footer>
 
 </div>
 </body>

@@ -1,0 +1,38 @@
+<% if articles.present? %>
+<div class="row">
+      <div class="col-md-12">
+           <!-- CLIENT SLIDER STARTS -->
+          <div class="carousel slide articles-carousel" id="articles-slider">
+              <div class="carousel-inner">
+                <% articles.in_groups_of(3) do |group| %>
+                  <div class="item">
+                    <div class="row">
+                    <% group.last(6).each do |article| %>
+                      <% unless article.nil? %>
+                            <div class="col-md-4">
+                                <div class="article-box">
+                                  <div class="caption custom-blue" style="margin-bottom: 10px;">
+                                    <%= link_to article.title, article_path(article.id) %>
+                                  </div>
+                                </div>
+                            </div>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <% end %>
+
+              </div>
+              <a data-slide="prev" href="#articles-slider" class="left carousel-control">
+                  <span class="glyphicon glyphicon-chevron-left" style="font-size:40px; color: black;" aria-hidden="true"></span>
+              </a>
+              <a data-slide="next" href="#articles-slider" class="right carousel-control">
+                  <span class="glyphicon glyphicon-chevron-right" style="font-size:40px; color: black;" aria-hidden="true"></span>
+              </a>
+          </div>
+           <!-- CLIENT SLIDER ENDS -->
+      </div>
+  </div>
+<% else %>
+  Ni člankov
+<% end %>

@@ -25,3 +25,43 @@
   font-size: 16px;
   font-family: monospace;
 }
+
+//articles carousel
+
+.articles-carousel {
+    margin-top: 50px; /*SMALL TOP MARGIN FOR SPACE */
+    padding: 0 30px 30px 30px;
+}
+.articles-carousel .carousel-inner {
+  padding-left: 140px;
+}
+.articles-carousel .portfolio-box {
+      border: 2px solid #1539A8;
+      text-align: center;
+      background: #F4F4F4;
+      height: 200px;
+      width: 200px;
+      padding-top: 90px;
+  }
+
+.articles-carousel .carousel-control.left {
+      width: 35px;
+      background: transparent;
+      color: #1539A8;
+      left: -15px;
+      position: absolute;
+      bottom: 85px;
+  }
+
+.articles-carousel .carousel-control.right {
+      width: 35px;
+      background: transparent;
+      color: #1539A8;
+      right: -15px;
+      position: absolute;
+      bottom: 85px;
+  }
+
+.articles-carousel .portfolio-box h4 {
+      height: 40px;
+  }
