@@ -34,5 +34,8 @@
       </div>
   </div>
 <% else %>
-  Ni člankov
+  <h3>Ni Še dodanih člankov</h3>
+  <% if current_user.is_admin? %>
+    <%= link_to "+ Dodaj članek", new_article_path %>
+  <% end %>
 <% end %>
