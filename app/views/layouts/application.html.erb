@@ -43,14 +43,20 @@
 <!-- Modal -->
 <%= render '/layouts/sign_in_modal' %>
 
+
 <%= yield %>
-
-  <footer class="footer navbar-fixed-bottom">
-    <div class="container">
-      <p class="text-muted text-center"><%= image_tag "logo2.png", style:"height: 50px;" %></p>
-    </div>
-  </footer>
-
 </div>
+
+
+<footer class="header"></footer>
+<footer class="body">
+  <div class="container">
+    <ul class="list-inline text-center">
+      <li class="text-muted"><%= image_tag "logo2.png", style:"height: 50px;" %></li>
+      <li class="text-muted pull-right" style="padding-top: 20px;">© Športni Blog, 2016</li>
+    </ul>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -24,3 +24,31 @@
   font-size: 13px;
   padding: 5px;
 }
+
+$footer-header-height: 102px;
+$footer-body-height: 50px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: $footer-header-height + $footer-body-height;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+      }
+
+footer.header {
+  bottom: $footer-body-height;
+  height: $footer-header-height;
+}
+footer.body {
+  min-height: $footer-body-height;
+  border-top: 1px solid black;
+  padding-top:2px;
+}
