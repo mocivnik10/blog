@@ -19,6 +19,10 @@
     <%= f.label "Vsebina" %><br>
     <%= f.text_area :body, class:"form-control", rows: 10 %>
   </div>
+  <div class="form-group">
+    <%= f.label "Slika" %><br>
+    <%= f.file_field :image, class:"form-control" %>
+  </div>
   <div class="actions">
     <%= f.submit "Uredi članek", class:"btn btn-success" %>
     <%= link_to 'Nazaj', articles_path, class:"btn btn-default pull-right" %>
