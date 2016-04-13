@@ -1,6 +1,8 @@
 <h2 class="text-center">Zadnji članki</h2>
 <%= render :partial => 'articles', :object => @articles %>
 
+<h2 class="text-center">O meni</h2>
+<%= render 'about' %>
 <script>
 
 $('#articles-slider .carousel-inner > .item:first').addClass('active');
