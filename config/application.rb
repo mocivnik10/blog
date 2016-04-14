@@ -22,5 +22,27 @@ module Blog
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # if Rails.env.production?
+    #      ActionMailer::Base.smtp_settings = {
+    #        :address        => 'smtp.sendgrid.net',
+    #        :port           => '587',
+    #        :authentication => :plain,
+    #        :user_name      => ENV['SENDGRID_USERNAME'],
+    #        :password       => ENV['SENDGRID_PASSWORD'],
+    #        :domain         => 'heroku.com',
+    #        :enable_starttls_auto => true
+    #      }
+    #  else
+        ActionMailer::Base.delivery_method = :smtp
+        ActionMailer::Base.smtp_settings = {
+         :address        => 'mailtrap.io',
+         :port           => '2525',
+         :authentication => :cram_md5,
+         :user_name      => ENV['MAILTRAP_USERNAME'],
+         :password       => ENV['MAILTRAP_PASSWORD']
+       }
+    # end
+
   end
 end

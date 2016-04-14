@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'contact_us', to: 'contact_us#index'
+
   devise_for :users
   resources :articles
   root 'welcome#index'
+
+  put 'send_contact_email', to: 'contact_us#send_contact_email', as: 'send_contact_email'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
