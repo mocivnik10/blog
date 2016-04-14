@@ -14,21 +14,37 @@
 
 
   <% @articles.each do |article| %>
-  <ul class="list-group inline-list">
-    <li class="list-group-item">
-      <h4 class="text-center"><%= link_to "#{article.title}", article %></h4>
-      <%= truncate(article.body, length: 200) { link_to "Preberi več", article } %>
-        <% if user_signed_in? && current_user.is_admin? %>
-        <br />
-        <br />
-        <ol class="breadcrumb">
-          <li><%= link_to 'Uredi', edit_article_path(article), class:"text-right" %></li>
-          <li><%= link_to 'Izbriši', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-right" %></li>
-        </ol>
-        <% end %>
-      </li>
-    </ul>
-    <% end %>
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-group inline-list">
+          <li class="list-group-item">
+            <h4><%= link_to "#{article.title}", article, style:"color: black;" %></h4>
+            <hr>
+            <p>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              11 Komentarjev
+              <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>
+              <%= article.created_at.to_formatted_s(:short) %>
+            </p>
+            <hr>
+            <%= truncate(article.body, length: 400) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
+              <% if user_signed_in? && current_user.is_admin? %>
+              <br />
+              <br />
+              <br />
+              <ol class="breadcrumb">
+                <li><%= link_to 'Uredi', edit_article_path(article), class:"text-right" %></li>
+                <li><%= link_to 'Izbriši', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-right" %></li>
+              </ol>
+              <% end %>
+            </li>
+          </ul>
+      </div>
+      <div class="col-md-4">
+
+      </div>
+    </div>
+  <% end %>
 
 
 

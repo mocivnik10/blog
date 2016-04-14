@@ -16,8 +16,10 @@
 
 
 
-  <%= link_to 'Uredi Članek', edit_article_path(@article) %> |
-  <%= link_to 'Nazaj na vse članke', articles_path %>
+  <% if current_user && current_user.is_admin? %>
+    <%= link_to 'Uredi Članek', edit_article_path(@article) %> |
+  <% end %>
+  <%= link_to 'Nazaj', articles_path %>
 
 
 </div>
