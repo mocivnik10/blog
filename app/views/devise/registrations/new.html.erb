@@ -1,29 +1,38 @@
-<h2>Sign up</h2>
+<h2 class="text-center">Registrijaj Se</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row" style="margin-top: 60px;">
+  <div class="col-md-4">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
   </div>
+  <div class="col-md-4">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form form-horizontal"}) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class:"form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, "Geslo" %>
+        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, "Potrdi Geslo" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+      </div>
+
+      <div class="text-center">
+        <div class="actions">
+          <%= f.submit "Registriraj se", class:"btn btn-default" %>
+        </div>
+      <% end %>
+          Že imaš račun, Prijavi se<%= link_to "Tukaj!", "#",remote: true, data: { toggle: 'modal', target: '#myModal'} %><br />
+          Si pozabil geslo? Zahtevaj <%= link_to "Novo!", new_password_path(resource_name) %>
+      </div>
   </div>
+  <div class="col-md-4">
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

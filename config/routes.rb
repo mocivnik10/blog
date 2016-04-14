@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+
+  get 'comments/index'
+
   get 'contact_us', to: 'contact_us#index'
 
   devise_for :users
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   root 'welcome#index'
 
   put 'send_contact_email', to: 'contact_us#send_contact_email', as: 'send_contact_email'
@@ -42,8 +47,7 @@ Rails.application.routes.draw do
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
-  #     resources :sales do
+  #     #     resources :sales do
   #       get 'recent', on: :collection
   #     end
   #   end

@@ -1,6 +1,3 @@
-<div class="container">
-
-
 
 
 <div class="panel panel-info" style="margin-top: 50px;">
@@ -21,5 +18,30 @@
   <% end %>
   <%= link_to 'Nazaj', articles_path %>
 
-
+<hr>
+<h4>Komentarji:</h4>
+<br />
+<div class="panel panel-inverse">
+  <div class="panel-heading panel-customize-header">
+    Št. komentarjev: <%= @article.comments.count %>
+  </div>
+  <div class="panel-body">
+    <% if current_user %>
+    <%= render 'comments_form' %>
+    <% else %>
+      <p>
+        Za komentiranje se prosim <%= link_to "prijavi", "#",remote: true, data: { toggle: 'modal', target: '#myModal'} %>
+        ali <%= link_to "registriraj", new_registration_path(resource_name) %> !
+      </p>
+    <% end %>
+  </div>
 </div>
+
+
+<% @article.comments.each do |comment| %>
+<hr>
+    <strong><%= comment.user.email %></strong> | <em><%= comment.created_at.to_formatted_s(:short) %></em>
+  <p style="padding-top: 10px;">
+    <%= comment.content %>
+  </p>
+<% end %>

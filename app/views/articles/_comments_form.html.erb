@@ -1,0 +1,8 @@
+<%= form_for [@article, Comment.new], html: { class:"form-horizontal"} do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :article_id, value: @article.id %>
+  <div class="form-group">
+    <%= f.text_area :content, rows: 5, cols: 100, class:"form-control", placeholder: "Napiši komentar" %>
+  </div>
+  <%= f.submit "Objavi", class:"btn btn-default pull-right" %>
+<% end %>
