@@ -1,15 +1,12 @@
+<h1 class="text-center">Članki<small></small> </h1>
+<br />
 
-
-
-
-  <h1 class="text-center">Članki<small></small> </h1>
-  <br />
+<p class="text-center">
   <% if user_signed_in? && current_user.is_admin? %>
-    <%= link_to '+ Dodaj nov članek', new_article_path, class:"pull-right" %>
+    <%= link_to '+ Dodaj nov članek', new_article_path, class:"text-center" %>
   <% end %>
-  <br />
-  <br />
-
+</p>
+<br />
 
 
   <% @articles.each do |article| %>
@@ -24,15 +21,15 @@
           <hr>
           <p>
             <i class="fa fa-pencil" aria-hidden="true"></i>
-            11 Komentarjev
-            <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>
+            <%= article.comments.count %> - <%= my_comment_helper(article) %>
+            <i class="fa fa-clock-o fa-lg" aria-hidden="true" style="padding-left: 10px;"></i>
             <%= article.created_at.to_formatted_s(:short) %>
           </p>
           <hr>
-          <%= truncate(article.body, length: 400) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
+          <p>
+            <%= truncate(article.body, length: 300) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
+          </p>
             <% if user_signed_in? && current_user.is_admin? %>
-            <br />
-            <br />
             <br />
             <ol class="breadcrumb">
               <li><%= link_to 'Uredi', edit_article_path(article), class:"text-right" %></li>
