@@ -31,45 +31,48 @@
 }
 
 //articles carousel
+//
+// .articles-carousel {
+//     margin-top: 50px; /*SMALL TOP MARGIN FOR SPACE */
+//     padding: 0 30px 30px 30px;
+// }
 
-.articles-carousel {
-    margin-top: 50px; /*SMALL TOP MARGIN FOR SPACE */
-    padding: 0 30px 30px 30px;
+// .articles-carousel .portfolio-box {
+//       border: 2px solid #1539A8;
+//       text-align: center;
+//       background: #F4F4F4;
+//       height: 200px;
+//       width: 200px;
+//       padding-top: 90px;
+//   }
+
+// .articles-carousel .carousel-control.left {
+//       width: 35px;
+//       background: transparent;
+//       color: #1539A8;
+//       left: -15px;
+//       position: absolute;
+//       bottom: 85px;
+//   }
+
+// .articles-carousel .carousel-control.right {
+//       width: 35px;
+//       background: transparent;
+//       color: #1539A8;
+//       right: -15px;
+//       position: absolute;
+//       bottom: 85px;
+//   }
+
+// .articles-carousel .portfolio-box h4 {
+//       height: 40px;
+//   }
+.articles-carousel .carousel-control.right:hover {
+  background-color: rgba(0, 0, 0, 0.0);
 }
-.articles-carousel .carousel-inner {
-  //padding-left: 70px;
+.articles-carousel .carousel-control.left:hover {
+  background-color: rgba(0, 0, 0, 0.0);
 }
-.articles-carousel .portfolio-box {
-      border: 2px solid #1539A8;
-      text-align: center;
-      background: #F4F4F4;
-      height: 200px;
-      width: 200px;
-      padding-top: 90px;
-  }
-
-.articles-carousel .carousel-control.left {
-      width: 35px;
-      background: transparent;
-      color: #1539A8;
-      left: -15px;
-      position: absolute;
-      bottom: 85px;
-  }
-
-.articles-carousel .carousel-control.right {
-      width: 35px;
-      background: transparent;
-      color: #1539A8;
-      right: -15px;
-      position: absolute;
-      bottom: 85px;
-  }
-
-.articles-carousel .portfolio-box h4 {
-      height: 40px;
-  }
-
 .caption {
   //height: 480px;
   //width: 100%;
@@ -82,7 +85,5 @@
   font-size: 22px;
   //color: white !important;
   font-weight: bold !important;
-  padding: 2px;
-  vertical-align: middle;
-  line-height: 700px;
+  padding-top: 330px;
 }

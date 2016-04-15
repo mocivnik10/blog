@@ -11,7 +11,7 @@
                       <% unless article.nil? %>
                             <div class="col-md-12">
                                 <div class="article-box">
-                                  <div class="caption custom-blue" style="margin-bottom: 10px; background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) ), url('<%= article.image.url %>');">
+                                  <div class="caption custom-blue" style="background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) ), url('<%= article.image.url %>');">
                                     <p class="article-title">
                                       <%= link_to article.title + "...", article_path(article.id), style:"color: white;" %>
                                     </p>
@@ -26,10 +26,10 @@
 
               </div>
               <a data-slide="prev" href="#articles-slider" class="left carousel-control">
-                  <span class="glyphicon glyphicon-chevron-left" style="font-size:40px; color: black;" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-chevron-left" style="font-size:40px; color: white;" aria-hidden="true"></span>
               </a>
               <a data-slide="next" href="#articles-slider" class="right carousel-control">
-                  <span class="glyphicon glyphicon-chevron-right" style="font-size:40px; color: black;" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-chevron-right" style="font-size:40px; color: white;" aria-hidden="true"></span>
               </a>
           </div>
            <!-- CLIENT SLIDER ENDS -->
