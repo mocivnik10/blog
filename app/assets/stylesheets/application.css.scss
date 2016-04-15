@@ -18,7 +18,11 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
-
+ 
+ .index-logo {
+   height: 250px;
+   margin-top: -50px;
+ }
 .navbar-inverse {
   background-color: #000 !important;
 }

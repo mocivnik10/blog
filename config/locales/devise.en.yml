@@ -44,7 +44,7 @@ en:
       updated: "Račun je uspešno posodobljen."
     sessions:
       signed_in: "Prijava uspešna!"
-      signed_out: ""
+      signed_out: "Odjava uspešna"
       already_signed_out: ""
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
