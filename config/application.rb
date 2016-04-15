@@ -33,6 +33,7 @@ module Blog
             :domain         => 'heroku.com',
             :enable_starttls_auto => true
           }
+          config.action_mailer.default_url_options = { :host => 'sportni-blog.heroku.com' }
       else
         ActionMailer::Base.delivery_method = :smtp
         ActionMailer::Base.smtp_settings = {
@@ -42,6 +43,7 @@ module Blog
          :user_name      => ENV['MAILTRAP_USERNAME'],
          :password       => ENV['MAILTRAP_PASSWORD']
        }
+       config.action_mailer.default_url_options = { :host => 'localhost:3000' }
      end
 
   end

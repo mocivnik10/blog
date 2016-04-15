@@ -1,28 +1,40 @@
 <div class="modal-dialog" role="document">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class:"form form-horizontal"}) do |f| %>
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <h4 class="modal-title" id="myModalLabel">Prijavi se</h4>
     </div>
     <div class="modal-body">
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true %>
+        <div class="row">
+          <div class="col-md-2">
+
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, class:"form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+            </div>
+          </div>
+          <div class="col-md-2">
+
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+        <div class="text-center">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Si pozabil Geslo?", new_password_path(resource_name) %><br />
+          <% end -%>
+
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            Še nimaš računa, Registriraj se <%= link_to "Tukaj!", new_registration_path(resource_name) %><br />
+          <% end -%>
         </div>
-
-        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "Si pozabil Geslo?", new_password_path(resource_name) %><br />
-        <% end -%>
-
-        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-          Še nimaš računa, Registriraj se <%= link_to "Tukaj!", new_registration_path(resource_name) %><br />
-        <% end -%>
 
     </div>
     <div class="modal-footer">
