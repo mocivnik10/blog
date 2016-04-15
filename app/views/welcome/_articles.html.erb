@@ -4,15 +4,17 @@
            <!-- CLIENT SLIDER STARTS -->
           <div class="carousel slide articles-carousel" id="articles-slider">
               <div class="carousel-inner">
-                <% articles.in_groups_of(3) do |group| %>
+                <% articles.in_groups_of(1) do |group| %>
                   <div class="item">
                     <div class="row">
-                    <% group.last(6).each do |article| %>
+                    <% group.last(3).each do |article| %>
                       <% unless article.nil? %>
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="article-box">
-                                  <div class="caption custom-blue" style="margin-bottom: 10px; background-image: url('<%= article.image.url %>');">
-                                    <%= link_to article.title, article_path(article.id), class:"article-title" %>
+                                  <div class="caption custom-blue" style="margin-bottom: 10px; background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) ), url('<%= article.image.url %>');">
+                                    <p class="article-title">
+                                      <%= link_to article.title + "...", article_path(article.id), style:"color: white;" %>
+                                    </p>
                                   </div>
                                 </div>
                             </div>

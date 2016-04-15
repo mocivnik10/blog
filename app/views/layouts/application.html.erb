@@ -6,15 +6,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon33.ico' %>
+  <link href='https://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="container">
+  <div class="container my-custom-container">
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <%= image_tag "logo.png", style:"height: 60px;" %>
-    </div>
+    <!-- <div class="navbar-header">
+      <%#= image_tag "logo.png", style:"height: 60px;" %>
+    </div> -->
     <ul class="navbar-custom nav navbar-nav">
       <li class="<%= 'active' if params[:controller] == 'welcome' %>"><%= link_to "DOMOV", root_path %></li>
       <li class="<%= 'active' if params[:controller] == 'articles' %>"><%= link_to "ČLANKI", articles_path %></li>
@@ -51,11 +52,15 @@
 <footer class="header"></footer>
 <footer class="body">
   <div class="container">
-    <ul class="list-inline text-center">
-      <li class="text-muted"><%= image_tag "logo2.png", style:"height: 50px;" %></li>
-      <li class="text-muted pull-right" style="padding-top: 20px;">© Športni Blog, 2016</li>
-    </ul>
+    <div class="text-center">
+      <%= image_tag "logo11.png", style:"height: 50px;" %>
+      <hr style="margin: 0">
+        <p style="padding: 15px 0 5px 0">
+          ©ŠportniBlog - 2016. Vse pravice pridržane. Developed by Iztok M.
+        </p>
+    </div>
   </div>
+
 </footer>
 
 </body>

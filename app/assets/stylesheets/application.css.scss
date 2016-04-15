@@ -19,6 +19,9 @@
  @import "bootstrap";
  @import "font-awesome";
 
+.navbar-inverse {
+  background-color: #000 !important;
+}
 .navbar-custom.nav {
   color: white;
   font-size: 13px;
@@ -35,8 +38,11 @@ html {
 
 body {
   margin-bottom: $footer-header-height + $footer-body-height;
+  font-family: 'Michroma', sans-serif;
 }
-
+p {
+  font-family: 'Michroma', sans-serif;
+}
 footer {
   position: absolute;
   bottom: 0;
@@ -55,3 +61,18 @@ footer.body {
 a:hover {
   color: white !important;
 }
+// container
+@media (min-width: 768px) {
+.my-custom-container{
+    width:600px;
+}}
+
+@media (min-width: 992px) {
+.my-custom-container{
+    width:720px;
+}}
+
+@media (min-width: 1200px) {
+.my-custom-container{
+    width:1020px;
+}}

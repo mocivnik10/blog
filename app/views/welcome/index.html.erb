@@ -1,4 +1,7 @@
-<h2 class="text-center">Zadnji članki</h2>
+<div class="text-center">
+<%= image_tag 'logo11.png', class:"index-logo" %>
+</div>
+<h2 class="text-center" style="margin-top: 0;">Zadnji Članki</h2>
 <%= render :partial => 'articles', :object => @articles %>
 
 <h2 class="text-center">O meni</h2>
@@ -8,7 +11,7 @@
 $('#articles-slider .carousel-inner > .item:first').addClass('active');
 $(document).ready(function () {
             $("#articles-slider").carousel({
-                interval: 15000 //TIME IN MILLI SECONDS
+                interval: 150000000 //TIME IN MILLI SECONDS
             });
         });
 </script>
