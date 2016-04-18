@@ -14,6 +14,11 @@
       </div>
 
       <div class="form-group">
+        <%= f.label :nickname, "Ime / Vzdevek" %><br />
+        <%= f.text_field :nickname, class:"form-control" %>
+      </div>
+
+      <div class="form-group">
         <%= f.label :password, "Geslo" %>
         <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
       </div>

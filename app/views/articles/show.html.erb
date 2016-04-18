@@ -40,7 +40,7 @@
 
 <% @article.comments.each do |comment| %>
 <hr>
-    <strong><%= comment.user.email %></strong> | <em><%= comment.created_at.to_formatted_s(:short) %></em>
+    <strong><%= if comment.user.nickname.present? then comment.user.nickname else comment.user.email end %></strong> | <em><%= comment.created_at.to_formatted_s(:short) %></em>
   <p style="padding-top: 10px;">
     <%= comment.content %>
   </p>

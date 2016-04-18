@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'contact_us', to: 'contact_us#index'
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :articles do
     resources :comments
   end

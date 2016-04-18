@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable
 
   validates_uniqueness_of :email
+  validates :password, presence: true, confirmation: true
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 end
