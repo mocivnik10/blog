@@ -1,3 +1,13 @@
+<% content_for :head do %>
+  <% @articles.each do |article| %>
+    <meta property="og:url"           content="<%= article_url(article) %>" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="<%= article.title %>" />
+    <meta property="og:description"   content="<%= truncate(article.body, length: 30) %>" />
+    <meta property="og:image"         content="<%= article.image.url %>" />
+  <% end %>
+<% end %>
+
 <% if @articles.any? %>
   <h1 class="text-center">Članki</h1>
 <% else %>
@@ -24,6 +34,10 @@
       <ul class="list-group inline-list">
         <li class="list-group-item">
           <h4><%= link_to "#{article.title}", article, style:"color: black; font-family: 'Michroma', sans-serif;" %></h4>
+          <div class="fb-share-button"
+		data-href="<%= article_url(article) %>"
+		data-layout="button_count">
+	</div>
           <hr>
           <p>
             <i class="fa fa-pencil comment-icons" aria-hidden="true"></i>

@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon33.ico' %>
   <link href='https://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
+  <%= content_for?(:head) ? yield(:head) : '' %>
 </head>
 <body>
   <div class="container my-custom-container">
@@ -64,6 +65,25 @@
   </div>
 
 </footer>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1178895648810393',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 </body>
 </html>
