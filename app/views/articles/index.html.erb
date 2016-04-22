@@ -64,7 +64,7 @@
             <%= article.created_at.to_formatted_s(:short) %>
           </p>
           <hr>
-          <p>
+          <p style="text-align: justify;">
             <%= truncate(article.body, length: 300) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
           </p>
             <% if user_signed_in? && current_user.is_admin? %>
