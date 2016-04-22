@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <% @articles.each do |article| %>
     <meta property="og:url"           content="<%= article_url(article) %>" />
-    <meta property="og:type"          content="website" />
+    <meta property="og:type"          content="article" />
     <meta property="og:title"         content="<%= article.title %>" />
     <meta property="og:description"   content="<%= truncate(article.body, length: 30) %>" />
     <meta property="og:image"         content="<%= article.image.url %>" />
@@ -34,10 +34,13 @@
       <ul class="list-group inline-list">
         <li class="list-group-item">
           <h4><%= link_to "#{article.title}", article, style:"color: black; font-family: 'Michroma', sans-serif;" %></h4>
-          <div class="fb-share-button"
-		data-href="<%= article_url(article) %>"
-		data-layout="button_count">
-	</div>
+          <hr>
+            <ul class="list-inline" style="font-family: 'Michroma', sans-serif;">
+              <li>Deli Članek:</li>
+              <li><%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
+                <i class="fa fa-facebook-square fa-lg facebook_share_icon"></i>
+              <% end %></li>
+            </ul>
           <hr>
           <p>
             <i class="fa fa-pencil comment-icons" aria-hidden="true"></i>
