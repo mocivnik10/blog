@@ -48,9 +48,10 @@
                   <i class="fa fa-facebook-square fa-lg facebook_share_icon"></i>
                 <% end %>
               </li>
+              <li>|</li>
               <li>
-                <%= link_to "https://twitter.com/intent/tweet?url=#{article_url(article)}", target: "_blank", class:"share_buttons" do %>
-                  <i class="fa fa-twitter fa-lg facebook_share_icon"></i>
+                <%= link_to "https://twitter.com/intent/tweet?url=#{article_url(article)}&text=#{article.title}...", target: "_blank", class:"share_buttons" do %>
+                  <i class="fa fa-twitter fa-lg twitter_share_icon"></i>
                 <% end %>
               </li>
             </ul>
