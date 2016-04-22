@@ -43,9 +43,16 @@
           <hr>
             <ul class="list-inline" style="font-family: 'Michroma', sans-serif;">
               <li>Deli Članek:</li>
-              <li><%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
-                <i class="fa fa-facebook-square fa-lg facebook_share_icon"></i>
-              <% end %></li>
+              <li>
+                <%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
+                  <i class="fa fa-facebook-square fa-lg facebook_share_icon"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "https://twitter.com/intent/tweet?url=#{article_url(article)}", target: "_blank", class:"share_buttons" do %>
+                  <i class="fa fa-twitter fa-lg facebook_share_icon"></i>
+                <% end %>
+              </li>
             </ul>
           <hr>
           <p>
