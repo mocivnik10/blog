@@ -1,4 +1,16 @@
+<% content_for :head do %>
+    <meta property="og:url"           content="<%= article_url(@article) %>" />
+    <meta property="og:type"          content="@article" />
+    <meta property="og:title"         content="<%= @article.title %>" />
+    <meta property="og:description"   content="<%= truncate(@article.body, length: 30) %>" />
+    <meta property="og:image"         content="<%= @article.image.url %>" />
 
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@sportniBlog" />
+    <meta name="twitter:title" content="<%= @article.title %>" />
+    <meta name="twitter:description" content="<%= truncate(@article.body, length: 30) %>" />
+    <meta name="twitter:image" content="<%= @article.image.url %>" />
+<% end %>
 
 <div class="panel panel-inverse" style="margin-top: 50px; border: 1px solid black;">
   <div class="panel-heading text-center panel-customize-header">
@@ -9,7 +21,28 @@
       <%= @article.body %>
     </p>
   </div>
+  <div class="panel-footer">
+    <ul class="list-inline" style="font-family: 'Michroma', sans-serif;">
+      <li>Deli Članek:</li>
+      <li>
+        <%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(@article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
+          <i class="fa fa-facebook-square fa-lg facebook_share_icon"></i>
+        <% end %>
+      </li>
+      |
+      <li>
+        <%= link_to "https://twitter.com/intent/tweet?url=#{article_url(@article)}&text=#{@article.title}...", target: "_blank", class:"share_buttons" do %>
+          <i class="fa fa-twitter fa-lg twitter_share_icon"></i>
+        <% end %>
+      </li>
+      <li class="pull-right">
+        <span style="margin-right: 10px;">Spisal in Objavil:  Dejan D,</span><%= @article.created_at.to_formatted_s(:short) %>
+      </li>
+    </ul>
+  </div>
 </div>
+
+
 
 
 
