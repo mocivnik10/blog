@@ -9,5 +9,6 @@
 user = User.new
 user.email = "dejan@gmail.com"
 user.password = "dejan123"
+user.nickname = "Dejan D"
 user.is_admin = true
 user.save

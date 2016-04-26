@@ -15,6 +15,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find(params[:article_id])
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to article_path(@article), flash: {notice: "Komentar je bil uspešno izbrisan!"}
+    else
+      redirect_to article_path(@article), flash: {notice: "Komentarja ni bilo mogoče izbrisati!"}
+    end
+  end
+
   private
 
   def comment_params

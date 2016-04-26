@@ -77,4 +77,9 @@
   <p style="padding-top: 10px;">
     <%= comment.content %>
   </p>
+  <% if current_user %>
+    <% if current_user.is_admin? || comment.user == current_user %>
+      <%= link_to 'Izbriši Komentar', article_comment_path(@article.id, comment.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  <% end %>
 <% end %>
