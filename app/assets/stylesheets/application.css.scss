@@ -35,10 +35,25 @@
   transform: scale(1.5);
 }
 
- .index-logo {
-   height: 250px;
-   margin-top: -50px;
+.index-logo {
+  background: image-url("logo11.png");
+  background-size: cover;
+  height: 200px;
+  width: 490px;
+  display: -webkit-inline-box;
+  display: inline-block;
  }
+ @media only screen and (max-width: 500px) {
+   .index-logo {
+     background: image-url("logo11.png");
+     background-size: cover;
+     height: 50px;
+     width: 160px;
+     display: -webkit-inline-box;
+     display: inline-block;
+   }
+ }
+ 
 .navbar-inverse {
   background-color: #000 !important;
 }

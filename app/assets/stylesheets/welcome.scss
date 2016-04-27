@@ -90,3 +90,11 @@
   font-weight: bold !important;
   padding-top: 420px;
 }
+@media (max-width: 500px) {
+  .caption {
+    height: 300px;
+  }
+  .article-title{
+    padding-top: 200px;
+  }
+}

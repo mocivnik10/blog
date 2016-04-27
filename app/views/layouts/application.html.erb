@@ -6,17 +6,26 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon33.ico' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
   <%= content_for?(:head) ? yield(:head) : '' %>
 </head>
 <body>
   <div class="container my-custom-container">
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+<div class="navbar navbar-inverse">
     <!-- <div class="navbar-header">
       <%#= image_tag "logo.png", style:"height: 60px;" %>
     </div> -->
+     <button type = "button" class = "navbar-toggle"
+        data-toggle = "collapse" data-target = "#example-navbar-collapse">
+        <span class = "sr-only">Toggle navigation</span>
+        <span class = "icon-bar"></span>
+        <span class = "icon-bar"></span>
+        <span class = "icon-bar"></span>
+     </button>
+
+  <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
     <ul class="navbar-custom nav navbar-nav">
       <li class="<%= 'active' if params[:controller] == 'welcome' %>"><%= link_to "DOMOV", root_path %></li>
       <li class="<%= 'active' if params[:controller] == 'articles' %>"><%= link_to "ČLANKI", articles_path %></li>
@@ -37,9 +46,11 @@
       <% end %>
     </ul>
   </div>
-</nav>
+</div>
 <div class="text-center">
-<%= image_tag 'logo11.png', class:"index-logo" %>
+  <div class="index-logo">
+
+  </div>
 </div>
 <%= render '/layouts/messages' %>
 
