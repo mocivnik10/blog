@@ -63,6 +63,8 @@ gem 'devise'
 
 gem 'cookies_eu'
 
+gem 'bootsy'
+
 gem 'friendly_id', '~> 5.1.0'
 
 #paperclip

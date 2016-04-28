@@ -65,7 +65,7 @@
           </p>
           <hr>
           <p style="text-align: justify;">
-            <%= truncate(article.body, length: 300) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
+            <%= truncate(article.body.html_safe, length: 300, escape: false) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
           </p>
             <% if user_signed_in? && current_user.is_admin? %>
             <br />
