@@ -30,7 +30,10 @@
 </p>
 <br />
 
-
+<div class="text-center">
+  <%= will_paginate @articles, previous_label: "<< Nazaj", next_label: "Naprej >>" %>
+</div>
+<br />
   <% @articles.each do |article| %>
   <div class="row">
     <div class="col-md-2">
@@ -83,6 +86,9 @@
   </div>
   <% end %>
 
+  <div class="text-center">
+    <%= will_paginate @articles, previous_label: "<< Nazaj", next_label: "Naprej >>" %>
+  </div>
 
 
   <br>

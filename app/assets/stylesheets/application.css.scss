@@ -113,3 +113,11 @@ a:hover {
 .my-custom-container{
     width: 1020px;
 }}
+// pagination style
+.pagination > a, .pagination > em {
+  padding: 0 10px 0 10px;
+}
+.pagination > em.current {
+  font-weight: bold;
+  font-size: 18px;
+}
