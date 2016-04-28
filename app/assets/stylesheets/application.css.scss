@@ -54,6 +54,9 @@
      display: -webkit-inline-box;
      display: inline-block;
    }
+   .navbar-custom.nav.navbar-nav.pull-right {
+     float: left;
+   }
  }
 
 .navbar-inverse {
