@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
   def index
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @comments = @article.comments
   end
 
   def create
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:article_id])
+    @article = Article.friendly.find(params[:article_id])
     @comment = Comment.find(params[:id])
     if @comment.destroy
       redirect_to article_path(@article), flash: {notice: "Komentar je bil uspešno izbrisan!"}

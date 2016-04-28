@@ -13,6 +13,9 @@ class ArticlesController < ApplicationController
     # @article.comments.each do |comment|
     #   @user = comment.user
     # end
+    if request.path != article_path(@article)
+      redirect_to @article, status: :moved_permanently
+    end
   end
 
   # GET /articles/new
@@ -67,11 +70,11 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :image)
+      params.require(:article).permit(:title, :body, :image, :bootsy_image_gallery_id)
     end
 end
