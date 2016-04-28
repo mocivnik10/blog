@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require cookies_eu
 
  */
 
@@ -53,7 +54,7 @@
      display: inline-block;
    }
  }
- 
+
 .navbar-inverse {
   background-color: #000 !important;
 }
