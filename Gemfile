@@ -67,6 +67,8 @@ gem 'bootsy'
 
 gem 'friendly_id', '~> 5.1.0'
 
+#gem 'texticle', require: 'texticle/rails'
+gem 'pg_search'
 gem 'will_paginate', '~> 3.1.0'
 
 #paperclip

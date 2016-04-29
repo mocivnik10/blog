@@ -32,6 +32,20 @@
       <li class="<%= 'active' if params[:controller] == 'contact_us' %>"><%= link_to "KONTAKT", contact_us_path %></li>
     </ul>
     <ul class="navbar-custom nav navbar-nav navbar-right">
+      <li>
+        <div class="col-md-12 col-ms-12">
+          <%= form_tag articles_path, method: :get, class:"navbar-form" do %>
+            <div class="input-group">
+                <%= text_field_tag :query, params[:query], class:"form-control", placeholder: "Išči" %>
+              <div class="input-group-btn">
+                <%= button_tag(type: "submit", name: nil, class:"btn btn-default") do %>
+                  <i class="fa fa-search fa-lg"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </li>
       <% if user_signed_in? %>
         <li role="presentation" class="dropdown">
           <%= link_to "#", class:"dropdown-toggle",data: { toggle: 'dropdown'}, aria: { haspopup: 'true', expanded:'false'}, role:"button" do %>

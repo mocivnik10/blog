@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+
+
   include Bootsy::Container
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
@@ -11,4 +13,17 @@ class Article < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :comments, dependent: :destroy
+
+  include PgSearch
+  pg_search_scope :search, against: [:title, :body],
+     using: {tsearch: {prefix: true, dictionary: "english"}}
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+      #where("title @@ :q or body @@ :q", q: query)
+    else
+      all
+    end
+  end
 end

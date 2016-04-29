@@ -14,7 +14,7 @@
   <% end %>
 <% end %>
 
-<% if @articles.any? %>
+<% if Article.any? %>
   <h1 class="text-center">Članki</h1>
 <% else %>
   <h3 class="text-center">
@@ -29,6 +29,7 @@
   <% end %>
 </p>
 <br />
+
 
 <div class="text-center">
   <%= will_paginate @articles, previous_label: "<< Nazaj", next_label: "Naprej >>" %>
