@@ -75,7 +75,7 @@
 <hr>
     <strong><%= if comment.user.nickname.present? then comment.user.nickname else comment.user.email end %></strong> | <em><%= comment.created_at.to_formatted_s(:short) %></em>
   <p style="padding-top: 10px;">
-    <%= comment.content %>
+    <%= simple_format(comment.content) %>
   </p>
   <% if current_user %>
     <% if current_user.is_admin? || comment.user == current_user %>
