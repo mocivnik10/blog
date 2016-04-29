@@ -63,6 +63,7 @@ gem 'devise'
 
 gem 'cookies_eu'
 
+gem "fog"
 gem 'bootsy'
 
 gem 'friendly_id', '~> 5.1.0'
