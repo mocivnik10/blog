@@ -16,6 +16,11 @@
                                     <p class="article-title">
                                       <%= link_to article.title + "...", article_path(article.slug), style:"color: white;" %>
                                     </p>
+                                    <p class="article-image-resource">
+                                      <% if article.image_resource.present? %>
+                                        Foto: <%= article.image_resource %>
+                                      <% end %>
+                                    </p>
                                   </div>
                                 </div>
                             </div>
