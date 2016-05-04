@@ -90,6 +90,13 @@
   font-weight: bold !important;
   padding-top: 420px;
 }
+.article-image-resource {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  padding-right: 30px;
+}
 @media (max-width: 500px) {
   .caption {
     height: 300px;
