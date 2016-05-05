@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  impressionist :actions => [:show, :index]
 
   # GET /articles
   # GET /articles.json
@@ -13,6 +14,7 @@ class ArticlesController < ApplicationController
     # @article.comments.each do |comment|
     #   @user = comment.user
     # end
+    impressionist(@article)
     if request.path != article_path(@article)
       redirect_to @article, status: :moved_permanently
     end
