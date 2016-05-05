@@ -1,5 +1,7 @@
 class Article < ActiveRecord::Base
 
+  is_impressionable
+  
   include Bootsy::Container
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]

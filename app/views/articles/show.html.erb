@@ -43,13 +43,17 @@
 </div>
 
 
-
-
-
   <% if current_user && current_user.is_admin? %>
     <%= link_to 'Uredi Članek', edit_article_path(@article) %> |
   <% end %>
   <%= link_to 'Nazaj', articles_path %>
+
+  <% if current_user && current_user.is_admin? %>
+  <spann class="pull-right">
+    <small><strong>Klikov: </strong> <%= @article.impressionist_count(:filter=>:all) %></small> ||
+    <small><strong>Ogledov: </strong> <%= @article.impressionist_count(:filter=>:ip_address) %></small>
+  </spann>
+  <% end %>
 
 <hr>
 <h4>Komentarji:</h4>
