@@ -23,6 +23,10 @@
     <%= f.label "Slika" %><br>
     <%= f.file_field :image, class:"form-control" %>
   </div>
+  <div class="form-group">
+    <%= f.label "Vir slike" %><br>
+    <%= f.text_field :image_resource, class:"form-control", placeholder:"Url vir slike" %>
+  </div>
   <div class="actions">
     <%= f.submit "Uredi članek", class:"btn btn-success" %>
     <%= link_to 'Nazaj', articles_path, class:"btn btn-default pull-right" %>
