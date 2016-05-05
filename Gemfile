@@ -76,4 +76,4 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'paperclip'
 gem 'aws-sdk', '< 2'
 
-gem 'emoji'
+gem 'easy-emoji'
