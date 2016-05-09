@@ -53,6 +53,7 @@
      width: 160px;
      display: -webkit-inline-box;
      display: inline-block;
+     margin-bottom: 20px;
    }
    .navbar-custom.nav.navbar-nav.pull-right {
      float: left;
@@ -60,6 +61,9 @@
    .form-group {
      margin-left: 15px !important;
      margin-right: 15px !important;
+   }
+   .article-image-resource {
+     font-size: 9px;
    }
  }
 
