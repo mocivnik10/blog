@@ -10,78 +10,87 @@
     <meta name="twitter:image" content="<%= @article.image.url %>" />
 <% end %>
 
-<div class="panel panel-inverse" style="margin-top: 50px; border: 1px solid black;">
-  <div class="panel-heading text-center panel-customize-header">
-    <h3><%= @article.title %></h3>
-  </div>
-  <div class="panel-body" style="text-align: justify;">
-    <p>
-      <%= @article.body.html_safe %>
-    </p>
-  </div>
-  <div class="panel-footer">
-    <ul class="list-inline" style="font-family: 'Michroma', sans-serif;">
-      <li>Deli Članek:</li>
-      <li>
-        <%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(@article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
-          <i class="fa fa-facebook-square fa-lg facebook_share_icon"></i>
-        <% end %>
-      </li>
-      |
-      <li>
-        <%= link_to "https://twitter.com/intent/tweet?url=#{article_url(@article)}&text=#{@article.title}...", target: "_blank", class:"share_buttons" do %>
-          <i class="fa fa-twitter fa-lg twitter_share_icon"></i>
-        <% end %>
-      </li>
-      <li class="pull-right">
-        <span style="margin-right: 10px;">Spisal in Objavil:  Dejan D,</span><%= @article.created_at.to_formatted_s(:short) %>
-      </li>
-    </ul>
+<div class="text-center">
+  <div class="index-logo">
+
   </div>
 </div>
 
-
-  <% if current_user && current_user.is_admin? %>
-    <%= link_to 'Uredi Članek', edit_article_path(@article) %> |
-  <% end %>
-  <%= link_to 'Nazaj', articles_path %>
-
-  <% if current_user && current_user.is_admin? %>
-  <spann class="pull-right">
-    <small><strong>Klikov: </strong> <%= @article.impressionist_count(:filter=>:all) %></small> ||
-    <small><strong>Ogledov: </strong> <%= @article.impressionist_count(:filter=>:ip_address) %></small>
-  </spann>
-  <% end %>
-
-<hr>
-<h4>Komentarji:</h4>
-<br />
-<div class="panel panel-inverse">
-  <div class="panel-heading panel-customize-header">
-    Št. komentarjev: <%= @article.comments.count %>
-  </div>
-  <div class="panel-body">
-    <% if current_user %>
-    <%= render 'comments_form' %>
-    <% else %>
+<div class="container my-custom-container">
+  <div class="panel panel-inverse" style="margin-top: 50px; border: 1px solid black;">
+    <div class="panel-heading text-center panel-customize-header">
+      <h3><%= @article.title %></h3>
+    </div>
+    <div class="panel-body" style="text-align: justify;">
       <p>
-        Za komentiranje se prosim <%= link_to "prijavi", "#",remote: true, data: { toggle: 'modal', target: '#myModal'} %>
-        ali <%= link_to "registriraj", new_registration_path(resource_name) %> !
+        <%= @article.body.html_safe %>
       </p>
-    <% end %>
+    </div>
+    <div class="panel-footer">
+      <ul class="list-inline" style="font-family: 'Michroma', sans-serif;">
+        <li>Deli Članek:</li>
+        <li>
+          <%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(@article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
+            <i class="fa fa-facebook-square fa-lg facebook_share_icon"></i>
+          <% end %>
+        </li>
+        |
+        <li>
+          <%= link_to "https://twitter.com/intent/tweet?url=#{article_url(@article)}&text=#{@article.title}...", target: "_blank", class:"share_buttons" do %>
+            <i class="fa fa-twitter fa-lg twitter_share_icon"></i>
+          <% end %>
+        </li>
+        <li class="pull-right">
+          <span style="margin-right: 10px;">Spisal in Objavil:  Dejan D,</span><%= @article.created_at.to_formatted_s(:short) %>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 
 
-<% @article.comments.each do |comment| %>
-<hr>
-    <strong><%= if comment.user.nickname.present? then comment.user.nickname else comment.user.email end %></strong> | <em><%= comment.created_at.to_formatted_s(:short) %></em>
-  <p style="padding-top: 10px;">
-    <%= simple_format(comment.content) %>
-  </p>
-  <% if current_user %>
-    <% if current_user.is_admin? || comment.user == current_user %>
-      <%= link_to 'Izbriši Komentar', article_comment_path(@article.id, comment.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% if current_user && current_user.is_admin? %>
+      <%= link_to 'Uredi Članek', edit_article_path(@article) %> |
+    <% end %>
+    <%= link_to 'Nazaj', articles_path %>
+
+    <% if current_user && current_user.is_admin? %>
+    <spann class="pull-right">
+      <small><strong>Klikov: </strong> <%= @article.impressionist_count(:filter=>:all) %></small> ||
+      <small><strong>Ogledov: </strong> <%= @article.impressionist_count(:filter=>:ip_address) %></small>
+    </spann>
+    <% end %>
+
+  <hr>
+  <h4>Komentarji:</h4>
+  <br />
+  <div class="panel panel-inverse">
+    <div class="panel-heading panel-customize-header">
+      Št. komentarjev: <%= @article.comments.count %>
+    </div>
+    <div class="panel-body">
+      <% if current_user %>
+      <%= render 'comments_form' %>
+      <% else %>
+        <p>
+          Za komentiranje se prosim <%= link_to "prijavi", "#",remote: true, data: { toggle: 'modal', target: '#myModal'} %>
+          ali <%= link_to "registriraj", new_registration_path(resource_name) %> !
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+
+  <% @article.comments.each do |comment| %>
+  <hr>
+      <strong><%= if comment.user.nickname.present? then comment.user.nickname else comment.user.email end %></strong> | <em><%= comment.created_at.to_formatted_s(:short) %></em>
+    <p style="padding-top: 10px;">
+      <%= simple_format(comment.content) %>
+    </p>
+    <% if current_user %>
+      <% if current_user.is_admin? || comment.user == current_user %>
+        <%= link_to 'Izbriši Komentar', article_comment_path(@article.id, comment.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+
+</div>
