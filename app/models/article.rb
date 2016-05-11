@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
 
   is_impressionable
-  
+
   include Bootsy::Container
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history]
@@ -14,6 +14,7 @@ class Article < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :comments, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   include PgSearch
   pg_search_scope :search, against: [:title, :body],

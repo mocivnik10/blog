@@ -10,6 +10,10 @@
     <meta name="twitter:image" content="<%= @article.image.url %>" />
 <% end %>
 
+povprecna ocena clanka
+  <%= average_rating(@article) %>
+
+
 <div class="panel panel-inverse" style="margin-top: 50px; border: 1px solid black;">
   <div class="panel-heading text-center panel-customize-header">
     <h3><%= @article.title %></h3>
@@ -54,6 +58,16 @@
   <% end %>
 
 <hr>
+<p>
+  Ti je bil članek všeč?
+  <% if current_user %>
+    <%= link_to "Oceni ga!", new_article_rating_path(@article) %>
+  <% else %>
+    Prijavi/Registriraj se <%= link_to "Tukaj", "#",remote: true, data: { toggle: 'modal', target: '#myModal'} %> in ga oceni!
+  <% end %>
+</p>
+<hr>
+
 <h4>Komentarji:</h4>
 <br />
 <div class="panel panel-inverse">

@@ -12,4 +12,10 @@ module ApplicationHelper
     end
   end
 
+  def average_rating(article)
+    rating = article.ratings
+    result = rating.average(:rate)
+    return result.round(1)
+  end
+
 end

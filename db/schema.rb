@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20160510132122) do
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "ratings", force: :cascade do |t|
-    t.string   "rate"
+    t.integer  "rate"
     t.integer  "user_id"
     t.integer  "article_id"
     t.datetime "created_at", null: false
