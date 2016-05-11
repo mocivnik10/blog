@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   validates :password, presence: true, confirmation: true
 
   has_many :comments, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 end
