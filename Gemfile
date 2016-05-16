@@ -62,7 +62,6 @@ gem 'font-awesome-rails', '~> 4.5', '>= 4.5.0.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 
-gem 'cookies_eu'
 
 gem "fog"
 gem 'bootsy'
