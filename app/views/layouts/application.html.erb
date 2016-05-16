@@ -12,7 +12,7 @@
   <meta property="og:description" content="" />
   <%= content_for?(:head) ? yield(:head) : '' %>
 </head>
-<body>
+<body class="eupopup eupopup-fixedtop">
 
 <%= render '/layouts/messages' %>
 
@@ -126,6 +126,8 @@ $(document).ready(function () {
     }
 
 });
+
+
 // $(document).ready(function(){
 //   window.fbAsyncInit = function() {
 //     FB.init({

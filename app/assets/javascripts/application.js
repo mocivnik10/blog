@@ -17,4 +17,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
-//= require cookies_eu
+//= require jquery-2.1.3.min
+//= require jquery-eu-cookie-law-popup
