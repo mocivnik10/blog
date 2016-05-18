@@ -12,13 +12,28 @@
  *
  *= require_tree .
  *= require_self
- *= require cookies_eu
  *= require bootsy
+ *= require jquery-eu-cookie-law-popup
  */
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+
+// average rating star
+.average_rating_star {
+  background-image: image-url('white_star.png');
+  background-size: cover;
+  height: 70px;
+  width: 75px;
+}
+.average_rating_star_text {
+  padding-top: 30px;
+  padding-left: 22px;
+  color: black;
+  font-weight: bold;
+}
+
  // share buttons
 .share_buttons:hover {
   background: none !important;
@@ -66,9 +81,47 @@
      font-size: 9px;
    }
  }
+// ipad mini navbar
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    li.dropdown {
+      margin-right: 35px;
+    }
+  }
 
+//
 .navbar-inverse {
-  background-color: #000 !important;
+  background-color: #000;
+  ul.dropdown-menu > li > a:hover {
+    background-color: black;
+    color: white;
+  }
+}
+.navbar-fixed-top {
+  background-color: rgba(0, 0, 0, 0.5);
+    a.menu-title {
+      color: white;
+    }
+    a.menu-title:hover {
+      background-color: inherit !important;
+    }
+    li.active {
+      background-color: inherit !important;
+      font-weight: bold;
+    }
+    a:focus {
+      background-color: inherit !important;
+    }
+    .nav.dropdown a, .nav.dropdown > a:hover, .nav.dropdown > a:focus {
+      background-color: rgba(0, 0, 0, 0.5) !important;
+    }
+    ul.dropdown-menu > li > a:hover {
+      background-color: black;
+      color: white;
+    }
 }
 .navbar-custom.nav {
   color: white;

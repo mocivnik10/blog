@@ -63,26 +63,27 @@
 // .articles-carousel .portfolio-box h4 {
 //       height: 40px;
 //   }
-.articles-carousel .carousel-control.right {
-  border-radius: 0 15px 15px 0;
-}
+
+
+// .articles-carousel .carousel-control.right {
+//   border-radius: 0 15px 15px 0;
+// }
 .articles-carousel .carousel-control.right:hover {
   background-color: rgba(0, 0, 0, 0.0);
 }
-.articles-carousel .carousel-control.left {
-  border-radius: 15px 0 0 15px;
-}
+// .articles-carousel .carousel-control.left {
+//   border-radius: 15px 0 0 15px;
+// }
 .articles-carousel .carousel-control.left:hover {
   background-color: rgba(0, 0, 0, 0.0);
 }
 .caption {
-  //height: 480px;
   //width: 100%;
   background-size: 100% 100%;
   text-align: center;
   vertical-align: middle;
-  height: 530px;
-  border-radius: 15px;
+  height: 760px;
+  //border-radius: 15px;
 }
 .article-title {
   font-size: 22px;
@@ -97,12 +98,78 @@
   color: white;
   padding-right: 30px;
 }
-@media (max-width: 500px) {
+// iphone 6 & 6+ portrait:
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .caption {
+      height: 250px;
+    }
+    .article-title{
+      padding-top: 140px;
+      line-height: 25px;
+    }
+}
+//Iphone 6 landscape
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
   .caption {
-    height: 250px;
+    height: 450px;
   }
   .article-title{
-    padding-top: 140px;
+    padding-top: 280px;
     line-height: 25px;
   }
 }
+//Iphone 6 landscape
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) {
+    .caption {
+      height: 350px;
+    }
+    .article-title{
+      padding-top: 240px;
+      line-height: 25px;
+    }
+  }
+// Iphone 5 portrait
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .caption {
+      height: 220px;
+    }
+    .article-title{
+      padding-top: 150px;
+      line-height: 20px;
+      font-size: 12px;
+    }
+    .article-title a {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+// Iphone 4 landscape
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    .caption {
+      height: 350px;
+    }
+    .article-title{
+      padding-top: 230px;
+      line-height: 25px;
+    }
+  }

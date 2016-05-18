@@ -1,7 +1,6 @@
 <% if articles.present? %>
-<h2 class="text-center" style="margin: 0 0 50px 0;">Zadnji Članki</h2>
-<div class="row">
-      <div class="col-md-12">
+<!-- <div class="row"> -->
+      <!-- <div class="col-md-12"> -->
            <!-- CLIENT SLIDER STARTS -->
           <div class="carousel slide articles-carousel" id="articles-slider">
               <div class="carousel-inner">
@@ -39,8 +38,8 @@
               </a>
           </div>
            <!-- CLIENT SLIDER ENDS -->
-      </div>
-  </div>
+      <!-- </div> -->
+  <!-- </div> -->
 <% else %>
   <% if current_user && current_user.is_admin? %>
     <%= link_to "+ Dodaj članek", new_article_path %>
