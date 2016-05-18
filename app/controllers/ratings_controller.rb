@@ -7,8 +7,13 @@ class RatingsController < ApplicationController
   end
 
   def create
+    user_rating = @article.ratings.where(user_id: current_user.id)
     @rating = @article.ratings.new(rating_params)
     @rating.user = current_user
+
+    if user_rating.any?
+      user_rating.destroy_all
+    end
     if @rating.save
       redirect_to @article, flash: {notice: "Vaša ocena: #{@rating.rate} je sprejeta!"}
     else

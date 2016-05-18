@@ -65,10 +65,18 @@ povprecna ocena clanka
     <% end %>
 <hr>
 <p>
-  Ti je bil članek všeč?
   <% if current_user %>
-    <%= link_to "Oceni ga!", new_article_rating_path(@article) %>
+    <% if @article.ratings.where(user_id: current_user.id).any? %>
+        Vaša ocena: <% @article.ratings.where(user_id: current_user.id).each do |rating| %>
+                      <%= rating.rate %>
+                    <% end %>
+         |
+         <%= link_to "Popravi oceno!", new_article_rating_path(@article) %>
+      <% else %>
+        Ti je bil članek všeč? <%= link_to "Oceni ga!", new_article_rating_path(@article) %>
+    <% end %>
   <% else %>
+    Ti je bil članek všeč?
     Prijavi/Registriraj se <%= link_to "Tukaj", "#",remote: true, data: { toggle: 'modal', target: '#myModal'} %> in ga oceni!
   <% end %>
 </p>

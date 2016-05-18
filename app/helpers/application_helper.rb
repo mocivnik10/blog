@@ -13,9 +13,13 @@ module ApplicationHelper
   end
 
   def average_rating(article)
-    rating = article.ratings
-    result = rating.average(:rate)
-    return result.round(1)
+      rating = article.ratings
+      result = rating.average(:rate)
+    if rating.any?
+      return result.round(1)
+    else
+      return 0
+    end
   end
 
 end
