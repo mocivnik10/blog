@@ -16,13 +16,25 @@
   </div>
 </div>
 
-povprecna ocena clanka
-  <%= average_rating(@article) %>
 
 <div class="container my-custom-container">
   <div class="panel panel-inverse" style="margin-top: 50px; border: 1px solid black;">
-    <div class="panel-heading text-center panel-customize-header">
-      <h3><%= @article.title %></h3>
+    <div class="panel-heading panel-customize-header">
+      <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-center"><%= @article.title %></h3>
+        </div>
+        <div class="col-md-3">
+          <div class="average_rating_star pull-right">
+              <p class="average_rating_star_text">
+                <%= average_rating(@article) %>
+              </p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="panel-body" style="text-align: justify;">
       <p>

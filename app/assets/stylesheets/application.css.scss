@@ -19,6 +19,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+
+// average rating star
+.average_rating_star {
+  background-image: image-url('white_star.png');
+  background-size: cover;
+  height: 70px;
+  width: 75px;
+}
+.average_rating_star_text {
+  padding-top: 30px;
+  padding-left: 22px;
+  color: black;
+  font-weight: bold;
+}
+
  // share buttons
 .share_buttons:hover {
   background: none !important;
