@@ -46,25 +46,28 @@
 
       </div>
       <div class="col-md-8">
-        <ul class="list-group inline-list">
-          <li class="list-group-item">
-            <h4><%= link_to "#{article.title}", article, style:"color: black; font-family: 'Michroma', sans-serif;" %></h4>
-            <hr>
-              <ul class="list-inline" style="font-family: 'Michroma', sans-serif;">
-                <li>Deli Članek:</li>
-                <li>
-                  <%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
-                    <i class="fa fa-facebook-square fa-lg facebook_share_icon"></i>
-                  <% end %>
-                </li>
-                <li>|</li>
-                <li>
-                  <%= link_to "https://twitter.com/intent/tweet?url=#{article_url(article)}&text=#{article.title}...", target: "_blank", class:"share_buttons" do %>
-                    <i class="fa fa-twitter fa-lg twitter_share_icon"></i>
-                  <% end %>
-                </li>
-              </ul>
-            <hr>
+        <div class="panel panel-inverse" style="margin-bottom: 90px;">
+          <div class="panel-heading panel-customize-header">
+            <h4><%= link_to "#{article.title}", article, style:"color: white; font-family: 'Michroma', sans-serif;" %></h4>
+          </div>
+          <div class="panel-body article-list-panel-body" style="text-align: justify;">
+            <ul class="list-inline" style="font-family: 'Michroma', sans-serif;">
+              <li>Deli Članek:</li>
+              <li>
+                <%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
+                  <i class="fa fa-facebook-square fa-lg facebook_share_icon"></i>
+                <% end %>
+              </li>
+              <li>|</li>
+              <li>
+                <%= link_to "https://twitter.com/intent/tweet?url=#{article_url(article)}&text=#{article.title}...", target: "_blank", class:"share_buttons" do %>
+                  <i class="fa fa-twitter fa-lg twitter_share_icon"></i>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+
+          <div class="panel-body article-list-panel-body" style="text-align: justify;">
             <p>
               <i class="fa fa-pencil comment-icons" aria-hidden="true"></i>
               <%= article.comments.count %> - <%= my_comment_helper(article) %>
@@ -72,19 +75,30 @@
               <i class="fa fa-clock-o fa-lg comment-icons" aria-hidden="true"></i>
               <%= article.created_at.to_formatted_s(:short) %>
             </p>
-            <hr>
+          </div>
+
+          <div class="panel-body article-list-panel-body" style="text-align: justify;">
             <p style="text-align: justify;">
               <%= truncate(article.body.html_safe, length: 300, escape: false) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
             </p>
-              <% if user_signed_in? && current_user.is_admin? %>
-              <br />
-              <ol class="breadcrumb">
+          </div>
+
+          <% if user_signed_in? && current_user.is_admin? %>
+            <div class="panel-footer">
+              <ol class="list-inline">
                 <li><%= link_to 'Uredi', edit_article_path(article), class:"text-right" %></li>
                 <li><%= link_to 'Izbriši', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-right" %></li>
               </ol>
-              <% end %>
-            </li>
-          </ul>
+            </div>
+          <% end %>
+
+        </div>
+
+
+
+
+
+
       </div>
       <div class="col-md-2">
 
