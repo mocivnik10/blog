@@ -18,7 +18,7 @@ module ApplicationHelper
     if rating.any?
       return result.round(1)
     else
-      return 0
+      return 0.0
     end
   end
 
