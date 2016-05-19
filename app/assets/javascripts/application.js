@@ -11,11 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootsy
+//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
+//= require bootsy
 //= require bootstrap-sprockets
 //= require jquery-2.1.3.min
 //= require jquery-eu-cookie-law-popup
