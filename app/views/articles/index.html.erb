@@ -20,9 +20,9 @@
 
 <div class="container my-custom-container">
   <% if Article.any? %>
-    <h1 class="text-center">Članki</h1>
+    <h1 class="text-center article-index-MainTitle">Članki</h1>
   <% else %>
-    <h3 class="text-center">
+    <h3 class="text-center article-index-MainTitle">
       Ni še dodanih člankov!
     </h3>
   <% end %>
@@ -48,10 +48,10 @@
       <div class="col-md-8">
         <div class="panel panel-inverse" style="margin-bottom: 90px;">
           <div class="panel-heading panel-customize-header">
-            <h4><%= link_to "#{article.title}", article, style:"color: white; font-family: 'Michroma', sans-serif;" %></h4>
+            <h3><%= link_to "#{article.title}", article, class:"article-index-title", style:"color: white;" %></h2>
           </div>
           <div class="panel-body article-list-panel-body" style="text-align: justify;">
-            <ul class="list-inline" style="font-family: 'Michroma', sans-serif;">
+            <ul class="list-inline article-index-share">
               <li>Deli Članek:</li>
               <li>
                 <%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
@@ -68,7 +68,7 @@
           </div>
 
           <div class="panel-body article-list-panel-body" style="text-align: justify;">
-            <p>
+            <p class="article-index-CommentsClock">
               <i class="fa fa-pencil comment-icons" aria-hidden="true"></i>
               <%= article.comments.count %> - <%= my_comment_helper(article) %>
               <span style="margin: 0 5px 0 10px"></span>
@@ -78,7 +78,7 @@
           </div>
 
           <div class="panel-body article-list-panel-body" style="text-align: justify;">
-            <p style="text-align: justify;">
+            <p class="article-index-content">
               <%= truncate(article.body.html_safe, length: 300, escape: false) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
             </p>
           </div>

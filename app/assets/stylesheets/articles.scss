@@ -20,3 +20,49 @@
 .panel-body.article-list-panel-body {
   border-bottom: 1px solid;
 }
+
+// average rating star
+.average_rating_star {
+  background-image: image-url('white_star.png');
+  background-size: cover;
+  height: 70px;
+  width: 75px;
+}
+.average_rating_star_text {
+  padding-top: 30px;
+  padding-left: 26px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+//START fonts design
+
+h1.article-index-MainTitle {
+  font-size: 64px;
+}
+h4.article-index-title {
+  font-family: 'Raleway', sans-serif;
+}
+.article-index-share {
+  font-size: 15px;
+  margin-bottom: 0;
+  font-family: 'Raleway', sans-serif;
+}
+.article-index-CommentsClock {
+  margin: 0;
+}
+.article-index-content {
+  text-align: justify;
+  font-size: 15px;
+}
+
+.article-show-content {
+  font-size: 18px;
+  line-height: 24px;
+}
+ul.list-inline.article-show-share {
+  margin-top: 10px;
+  font-family: 'Raleway', sans-serif;
+}
+//END fonts design

@@ -25,7 +25,7 @@
 
         </div>
         <div class="col-md-6">
-          <h3 class="text-center"><%= @article.title %></h3>
+          <h2 class="text-center"><%= @article.title %></h2>
         </div>
         <div class="col-md-3">
           <div class="average_rating_star pull-right">
@@ -37,12 +37,12 @@
       </div>
     </div>
     <div class="panel-body" style="text-align: justify;">
-      <p>
+      <p class="article-show-content">
         <%= @article.body.html_safe %>
       </p>
     </div>
     <div class="panel-footer">
-      <ul class="list-inline" style="font-family: 'Michroma', sans-serif;">
+      <ul class="list-inline article-show-share">
         <li>Deli Članek:</li>
         <li>
           <%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(@article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
@@ -69,12 +69,12 @@
     <%= link_to 'Nazaj', articles_path %>
 
 
-    <% if current_user && current_user.is_admin? %>
-      <spann class="pull-right">
-        <small><strong>Klikov: </strong> <%= @article.impressionist_count(:filter=>:all) %></small> ||
-        <small><strong>Ogledov: </strong> <%= @article.impressionist_count(:filter=>:ip_address) %></small>
+      <spann class="pull-right ogledi">
+        <% if current_user && current_user.is_admin? %>
+          <small><strong>Klikov: </strong></small> <%= @article.impressionist_count(:filter=>:all) %> ||
+        <% end %>
+          <small><strong>Ogledov: </strong></small> <%= @article.impressionist_count(:filter=>:ip_address) %>
       </spann>
-    <% end %>
 <hr>
 <p>
   <% if current_user %>
@@ -85,16 +85,16 @@
          |
          <%= link_to "Popravi oceno!", new_article_rating_path(@article) %>
       <% else %>
-        Ti je bil članek všeč? <%= link_to "Oceni ga!", new_article_rating_path(@article) %>
+        Ti je bil članek <strong>všeč?</strong> <%= link_to "Oceni ga!", new_article_rating_path(@article) %>
     <% end %>
   <% else %>
-    Ti je bil članek všeč?
+    Ti je bil članek <strong>všeč?</strong>
     Prijavi/Registriraj se <%= link_to "Tukaj", "#",remote: true, data: { toggle: 'modal', target: '#myModal'} %> in ga oceni!
   <% end %>
 </p>
 <hr>
 
-  <h4>Komentarji:</h4>
+  <h3>Komentarji:</h3>
   <br />
   <div class="panel panel-inverse">
     <div class="panel-heading panel-customize-header">

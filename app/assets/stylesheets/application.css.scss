@@ -20,19 +20,7 @@
  @import "font-awesome";
  @import "bootsy";
 
-// average rating star
-.average_rating_star {
-  background-image: image-url('white_star.png');
-  background-size: cover;
-  height: 70px;
-  width: 75px;
-}
-.average_rating_star_text {
-  padding-top: 30px;
-  padding-left: 22px;
-  color: black;
-  font-weight: bold;
-}
+
 
  // share buttons
 .share_buttons:hover {
@@ -139,10 +127,10 @@ html {
 
 body {
   margin-bottom: $footer-header-height + $footer-body-height;
-  font-family: 'Michroma', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 p {
-  font-family: 'Michroma', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 footer {
   position: absolute;

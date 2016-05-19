@@ -86,7 +86,7 @@
   //border-radius: 15px;
 }
 .article-title {
-  font-size: 22px;
+  font-size: 30px;
   //color: white !important;
   font-weight: bold !important;
   padding-top: 420px;
@@ -173,3 +173,14 @@
       line-height: 25px;
     }
   }
+
+// text design
+p.uvodni-govor {
+  text-align: justify;
+  font-size: 22px;
+  line-height: 25px;
+}
+h2.uvodni-naslov {
+  margin: 30px 0 50px 0;
+  font-size: 46px;
+}
