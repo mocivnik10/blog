@@ -11,7 +11,7 @@
                       <% unless article.nil? %>
                             <div class="col-md-12">
                                 <div class="article-box">
-                                  <div class="caption custom-blue" style="background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) ), url('<%= article.image.url %>');">
+                                  <div class="caption custom-blue" style="background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) ), url('<%= article.image.url %>');">
                                     <p class="article-title">
                                       <%= link_to article.title + "...", article_path(article.slug), style:"color: white;" %>
                                     </p>
