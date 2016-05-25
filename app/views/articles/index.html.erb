@@ -40,6 +40,7 @@
     <%= will_paginate @articles, previous_label: "<< Nazaj", next_label: "Naprej >>" %>
   </div>
   <br />
+
   <% @articles.each do |article| %>
   <div class="row">
     <div class="col-md-8 col-md-offset-2 article-col">
@@ -48,7 +49,7 @@
       </div>
       <ul class="list-group inline-list">
         <li class="index-aticle-first-item list-group-item">
-          <hr>
+          <hr style="margin-top: 0;">
             <ul class="list-inline" style="font-family: 'Raleway', sans-serif;">
               <li>Deli Članek:</li>
               <li>
