@@ -29,11 +29,17 @@
   width: 75px;
 }
 .average_rating_star_text {
-  padding-top: 30px;
-  padding-left: 26px;
+  padding-top: 33px;
+  padding-left: 25px;
   color: black;
   font-weight: bold;
   font-size: 18px;
+}
+
+.index-aticle-first-item.list-group-item:first-child {
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top: none !important;
 }
 
 //START fonts design
@@ -41,8 +47,18 @@
 h1.article-index-MainTitle {
   font-size: 64px;
 }
-h4.article-index-title {
+.article-index-title-header {
+  background-color: black;
+  padding: 25px;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
   font-family: 'Raleway', sans-serif;
+  h4 {
+    margin: 0;
+  }
+}
+.article-col {
+  margin-bottom: 30px;
 }
 .article-index-share {
   font-size: 15px;

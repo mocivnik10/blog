@@ -40,18 +40,16 @@
     <%= will_paginate @articles, previous_label: "<< Nazaj", next_label: "Naprej >>" %>
   </div>
   <br />
-    <% @articles.each do |article| %>
-    <div class="row">
-      <div class="col-md-2">
-
+  <% @articles.each do |article| %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 article-col">
+      <div class="article-index-title-header">
+        <h4><%= link_to "#{article.title}", article, style:"color: white;" %></h4>
       </div>
-      <div class="col-md-8">
-        <div class="panel panel-inverse" style="margin-bottom: 90px;">
-          <div class="panel-heading panel-customize-header">
-            <h3><%= link_to "#{article.title}", article, class:"article-index-title", style:"color: white;" %></h2>
-          </div>
-          <div class="panel-body article-list-panel-body" style="text-align: justify;">
-            <ul class="list-inline article-index-share">
+      <ul class="list-group inline-list">
+        <li class="index-aticle-first-item list-group-item">
+          <hr>
+            <ul class="list-inline" style="font-family: 'Raleway', sans-serif;">
               <li>Deli Članek:</li>
               <li>
                 <%= link_to "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(article)}&display=popup&ref=plugin&src=share_button", target:"_blank", class:"share_buttons" do %>
@@ -65,51 +63,34 @@
                 <% end %>
               </li>
             </ul>
-          </div>
-
-          <div class="panel-body article-list-panel-body" style="text-align: justify;">
-            <p class="article-index-CommentsClock">
-              <i class="fa fa-pencil comment-icons" aria-hidden="true"></i>
-              <%= article.comments.count %> - <%= my_comment_helper(article) %>
-              <span style="margin: 0 5px 0 10px"></span>
-              <i class="fa fa-clock-o fa-lg comment-icons" aria-hidden="true"></i>
-              <%= article.created_at.to_formatted_s(:short) %>
-            </p>
-          </div>
-
-          <div class="panel-body article-list-panel-body" style="text-align: justify;">
-            <p class="article-index-content">
-              <%= truncate(article.body.html_safe, length: 300, escape: false) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
-            </p>
-          </div>
-
-          <% if user_signed_in? && current_user.is_admin? %>
-            <div class="panel-footer">
-              <ol class="list-inline">
-                <li><%= link_to 'Uredi', edit_article_path(article), class:"text-right" %></li>
-                <li><%= link_to 'Izbriši', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-right" %></li>
-              </ol>
-            </div>
-          <% end %>
-
-        </div>
-
-
-
-
-
-
-      </div>
-      <div class="col-md-2">
-
-      </div>
+          <hr>
+          <p>
+            <i class="fa fa-pencil comment-icons" aria-hidden="true"></i>
+            <%= article.comments.count %> - <%= my_comment_helper(article) %>
+            <span style="margin: 0 5px 0 10px"></span>
+            <i class="fa fa-clock-o fa-lg comment-icons" aria-hidden="true"></i>
+            <%= article.created_at.to_formatted_s(:short) %>
+          </p>
+          <hr>
+          <p style="text-align: justify;">
+            <%= truncate(article.body.html_safe, length: 300, escape: false) { link_to "Preberi več", article, style:"color: black; font-weight: bold;" } %>
+          </p>
+            <% if user_signed_in? && current_user.is_admin? %>
+            <br />
+            <ol class="breadcrumb">
+              <li><%= link_to 'Uredi', edit_article_path(article), class:"text-right" %></li>
+              <li><%= link_to 'Izbriši', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-right" %></li>
+            </ol>
+            <% end %>
+          </li>
+        </ul>
     </div>
-    <% end %>
+  </div>
+  <% end %>
 
     <div class="text-center">
       <%= will_paginate @articles, previous_label: "<< Nazaj", next_label: "Naprej >>" %>
     </div>
-
 
     <br>
 
