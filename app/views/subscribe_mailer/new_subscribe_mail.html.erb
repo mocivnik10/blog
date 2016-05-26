@@ -1,0 +1,22 @@
+<style media="screen">
+  .center {
+      margin: auto;
+      width: 60%;
+      padding: 10px;
+  }
+  p {
+    text-align: justify;
+  }
+  h2 {
+    text-align: center;
+  }
+</style>
+<div class="center">
+  <h2><%= @article.title %></h2>
+  <div class="image">
+    <%= image_tag @article.image.url(:medium) %>
+  </div>
+  <p>
+    <%= truncate(@article.body.html_safe, length: 300, escape: false) { link_to "Preberi več", @article, style:"color: black; font-weight: bold;" } %>
+  </p>
+</div>

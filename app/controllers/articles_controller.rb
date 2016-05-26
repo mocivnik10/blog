@@ -69,6 +69,12 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def send_email_to_subscribers
+    @article = Article.friendly.find(params[:format])
+    SubscribeMailer.new_subscribe_mail(@article).deliver_now
+    redirect_to @article
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
