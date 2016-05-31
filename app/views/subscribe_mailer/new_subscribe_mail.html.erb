@@ -15,11 +15,11 @@
   <div style="margin: auto; width: 60%; min-height: 100%; position: relative;">
     <div style="padding: 10px;">
       <div style="text-align: center;">
-        <%= email_image_tag("logo11.png", style:"height: 150px;") %>
+        <%= email_image_tag("logo11.png", style:"max-height: 150px;") %>
       </div>
     </div>
 
-    <div style="padding: 10px; padding-bottom: 220px;">
+    <div style="padding: 10px; padding-bottom: 180px;">
       <h2 style="text-align: center;"><%= @article.title %></h2>
       <div style="text-align: center;">
         <%= image_tag @article.image.url(:medium) %>
@@ -42,9 +42,9 @@
           <a style="color: white;" href="mailto:dejan.sportniblog@gmail.com">dejan.sportniblog@gmail.com</a>
           <br />
           <br />
-          <%= link_to email_image_tag("fb-white-icon.png", style:"height: 20px;"), "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(@article)}&display=popup&ref=plugin&src=share_button" %>
+          <%= link_to email_image_tag("fb-white-icon.png", style:"max-height: 20px;"), "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(@article)}&display=popup&ref=plugin&src=share_button" %>
           <span style="margin-right: 5px; margin-left: 5px;"></span>
-          <%= link_to email_image_tag("twitter-white-icon.png", style:"height: 20px;"), "https://twitter.com/intent/tweet?url=#{article_url(@article)}&text=#{@article.title}..." %>
+          <%= link_to email_image_tag("twitter-white-icon.png", style:"max-height: 20px;"), "https://twitter.com/intent/tweet?url=#{article_url(@article)}&text=#{@article.title}..." %>
       </div>
     </div>
   </div>
