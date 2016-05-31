@@ -72,7 +72,7 @@ class ArticlesController < ApplicationController
   def send_email_to_subscribers
     @article = Article.friendly.find(params[:format])
     SubscribeMailer.new_subscribe_mail(@article).deliver_now
-    redirect_to @article
+    redirect_to @article, flash: {notice: "Email je bil uspešno poslan"}
   end
 
   private

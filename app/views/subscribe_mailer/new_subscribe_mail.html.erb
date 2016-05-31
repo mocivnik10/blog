@@ -1,8 +1,32 @@
+<% content_for :head do %>
+    <meta property="og:url"           content="<%= article_url(@article) %>" />
+    <meta property="og:type"          content="@article" />
+    <meta property="og:title"         content="<%= @article.title %>" />
+    <meta property="og:image"         content="<%= @article.image.url %>" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@sportniBlog" />
+    <meta name="twitter:title" content="<%= @article.title %>" />
+    <meta name="twitter:image" content="<%= @article.image.url %>" />
+<% end %>
 <style media="screen">
+  body {
+     margin:0;
+     padding:0;
+     height:100%;
+  }
   .center {
       margin: auto;
       width: 60%;
-      padding: 10px;
+      min-height: 100%;
+      position: relative;
+  }
+  .header {
+    padding: 10px;
+  }
+  .body {
+    padding: 10px;
+    padding-bottom: 220px;
   }
   p {
     text-align: justify;
@@ -10,13 +34,67 @@
   h2 {
     text-align: center;
   }
+  .image-email {
+    text-align: center;
+  }
+  .logo-email {
+    height: 150px;
+  }
+  .logo-email-div {
+    text-align: center;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 140px;
+    background: black;
+    color: white;
+  }
+  .footer-content {
+    text-align: center;
+    padding: 10px;
+  }
+  .email-share-icons {
+    height: 20px;
+  }
+  .mail-link, .mail-link:visited {
+    color: white;
+  }
 </style>
 <div class="center">
-  <h2><%= @article.title %></h2>
-  <div class="image">
-    <%= image_tag @article.image.url(:medium) %>
+  <div class="header">
+    <div class="logo-email-div">
+      <%= email_image_tag("logo11.png", class:"logo-email") %>
+    </div>
   </div>
-  <p>
-    <%= truncate(@article.body.html_safe, length: 300, escape: false) { link_to "Preberi več", @article, style:"color: black; font-weight: bold;" } %>
-  </p>
+
+  <div class="body">
+    <h2><%= @article.title %></h2>
+    <div class="image-email">
+      <%= image_tag @article.image.url(:medium) %>
+    </div>
+    <p>
+      <%= truncate(@article.body.html_safe, length: 300, escape: false) { link_to "Preberi več", @article, style:"color: black; font-weight: bold;" } %>
+    </p>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-content">
+        <small>
+          Email ste prejeli ker ste naročeni na najnovejše novice iz športnega bloga
+          V kolikor ne želite prejemati več novic nas kontaktirajte.
+        </small>
+        <br />
+        <br />
+        @ SportniBlog | 2016 <br />
+        <a class="mail-link" href="mailto:dejan.sportniblog@gmail.com">dejan.sportniblog@gmail.com</a>
+        <br />
+        <br />
+        <%= link_to email_image_tag("fb-white-icon.png", class:"email-share-icons"), "https://www.facebook.com/sharer/sharer.php?sdk=joey&u=#{article_url(@article)}&display=popup&ref=plugin&src=share_button" %>
+        <span style="margin-right: 5px; margin-left: 5px;"></span>
+        <%= link_to email_image_tag("twitter-white-icon.png", class:"email-share-icons"), "https://twitter.com/intent/tweet?url=#{article_url(@article)}&text=#{@article.title}..." %>
+    </div>
+  </div>
 </div>
