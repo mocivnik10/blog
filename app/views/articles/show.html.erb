@@ -71,6 +71,7 @@
 
       <spann class="pull-right ogledi">
         <% if current_user && current_user.is_admin? %>
+          <small><strong><%= link_to "Pošlji email", send_email_to_subscribers_path(@article) %></strong></small> ||
           <small><strong>Klikov: </strong></small> <%= @article.impressionist_count(:filter=>:all) %> ||
         <% end %>
           <small><strong>Ogledov: </strong></small> <%= @article.impressionist_count(:filter=>:ip_address) %>

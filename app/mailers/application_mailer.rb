@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  add_template_helper(EmailHelper)
+  default from: "dejan.sportniblog@gmail.com"
   layout 'mailer'
 end
