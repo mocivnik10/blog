@@ -1,0 +1,33 @@
+
+
+<h2 class="text-center">Uredi si profil!</h2>
+
+<div class="row" style="margin-top: 60px;">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form form-horizontal"}) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class:"form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :nickname, "Ime / Vzdevek" %><br />
+        <%= f.text_field :nickname, class:"form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, "Geslo" %>
+        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+      </div>
+
+      <div class="text-center">
+        <div class="actions">
+          <%= f.submit "Potrdi", class:"btn btn-success" %>
+        </div>
+      <% end %>
+
+      </div>
+  </div>
+</div>
