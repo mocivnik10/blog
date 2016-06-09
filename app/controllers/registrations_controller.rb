@@ -6,6 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update
+
     if @user.update(account_update_params)
       sign_in(@user, bypass: true)
       redirect_to articles_path, flash: {notice: "Uporabnik uspešno posodobljen!"}
@@ -27,4 +28,5 @@ class RegistrationsController < Devise::RegistrationsController
   def set_user
     @user = current_user
   end
+
 end

@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   has_one :avatar, through: :profile_picture
   has_one :profile_picture
   accepts_nested_attributes_for :avatar
+
 end

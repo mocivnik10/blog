@@ -27,8 +27,13 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :password, "Geslo" %>
+        <%= f.label :password, "Vnesi Geslo" %><br />
         <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, "Potrdi geslo" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
       </div>
 
       <div class="text-center">
