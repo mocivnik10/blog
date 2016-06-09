@@ -116,6 +116,11 @@
 
   <% @article.comments.each do |comment| %>
   <hr>
+  <% if comment.user.profile_picture.present? %>
+    <%= image_tag("avatars/#{comment.user.avatar.filename}", class:"img-thumbnail mini-comment-avatar") %>
+  <% else %>
+    <%= image_tag("avatars/no_avatar.jpg", class:"img-thumbnail mini-comment-avatar") %>    
+  <% end %>
       <strong><%= if comment.user.nickname.present? then comment.user.nickname else comment.user.email end %></strong> | <em><%= comment.created_at.to_formatted_s(:short) %></em>
     <p style="padding-top: 10px;">
       <%= simple_format(comment.content) %>
