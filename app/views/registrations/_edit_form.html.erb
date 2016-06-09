@@ -78,7 +78,7 @@
         <div class="row">
           <% Avatar.all.each do |a| %>
           <div class="col-md-4">
-            <%= link_to image_tag("avatars/#{a.filename}"), profile_pictures_path(avatar_id: a.id), method: :post, class:"img-thumbnail" %>
+            <%= link_to image_tag("avatars/#{a.filename}", height:"150"), profile_pictures_path(avatar_id: a.id), method: :post, class:"img-thumbnail" %>
             <p>
               <!-- Spodnji razmik med slikami -->
             </p>
