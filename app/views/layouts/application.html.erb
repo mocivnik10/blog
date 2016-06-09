@@ -55,7 +55,7 @@
               <%= current_user.nickname.present? ? current_user.nickname : current_user.email %> <i class="fa fa-caret-down fa-lg"></i>
             <% end %>
             <ul class="dropdown-menu top-dropdown-ul dropdown-menu-right">
-              <li><%= link_to "Uredi si profil", "#" %></li>
+              <li><%= link_to "Uredi si profil", edit_user_registration_path %></li>
               <li>
                 <%= link_to "Odjavi se", destroy_user_session_path, method: :delete %>
               </li>

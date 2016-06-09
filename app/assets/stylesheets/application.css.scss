@@ -21,6 +21,37 @@
  @import "bootsy";
 
 
+//user; avatars
+.user_avatar_150px {
+  height: 150px;
+}
+.user-profile-card-1 {
+  background: black;
+  color: white;
+  padding: 20px;
+  border-radius: 25px;
+}
+.user-profile-card-2 {
+  border: 5px solid white;
+  border-radius: 25px;
+  padding: 25px;
+}
+.user-profile-info {
+  line-height: 25px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+.modal-body {
+  height: 400px;
+  overflow-y: auto;
+}
+.modal-dialog{
+  overflow-y: initial !important;
+}
+.mini-comment-avatar {
+  height: 45px;
+}
+//avatars-end
 
  // share buttons
 .share_buttons:hover {

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'send_email_to_subscribers', to: "articles#send_email_to_subscribers", as: :send_email_to_subscribers
 
   devise_for :users, :controllers => { registrations: 'registrations' }
+  
+  resources :profile_pictures, only: [ :create ]
+
   resources :articles do
     resources :ratings
     resources :comments

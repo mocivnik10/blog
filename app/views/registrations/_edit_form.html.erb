@@ -1,0 +1,89 @@
+
+
+<h2 class="text-center">Uredi si profil!</h2>
+
+<hr>
+
+
+<div class="row" style="margin-top: 40px;">
+  <div class="col-md-6">
+
+    <div class="text-center" style="margin-bottom: 20px;">
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target=".avatar-modal">Izberi/Zamenjaj si Profilno Sliko!</button>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form form-horizontal"}) do |f| %>
+      <%= devise_error_messages! %>
+
+
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class:"form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :nickname, "Ime / Vzdevek" %><br />
+        <%= f.text_field :nickname, class:"form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, "Geslo" %>
+        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+      </div>
+
+      <div class="text-center">
+        <div class="actions">
+          <%= f.submit "Potrdi", class:"btn btn-success" %>
+        </div>
+
+
+      <% end %>
+
+      </div>
+  </div>
+  <div class="col-md-6">
+    <div class="text-center user-profile-card-1">
+      <div class="user-profile-card-2">
+        <div class="user-profile-card-3">
+          <h2>Profilna izkaznica!</h2>
+          <% if current_user.avatar.present? %>
+            <%= image_tag("avatars/#{current_user.avatar.filename}", class:"user_avatar_150px img-thumbnail", data: {toggle: "modal", target: ".avatar-modal"}) %>
+          <% else %>
+            <%= link_to image_tag("avatars/no_avatar.jpg", class:"user_avatar_150px img-thumbnail", data: {toggle: "modal", target: ".avatar-modal"}), "#" %>
+          <% end %>
+          <p class="user-profile-info">
+            <%= current_user.email %> <br />
+            <%= current_user.nickname %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade avatar-modal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">Izberi profilno sliko!</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <% Avatar.all.each do |a| %>
+          <div class="col-md-4">
+            <%= link_to image_tag("avatars/#{a.filename}"), profile_pictures_path(avatar_id: a.id), method: :post, class:"img-thumbnail" %>
+            <p>
+              <!-- Spodnji razmik med slikami -->
+            </p>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

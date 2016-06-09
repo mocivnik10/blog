@@ -7,7 +7,7 @@
                 <% articles.in_groups_of(1) do |group| %>
                   <div class="item">
                     <div class="row">
-                    <% group.last(3).each do |article| %>
+                    <% group.each do |article| %>
                       <% unless article.nil? %>
                             <div class="col-md-12">
                                 <div class="article-box">
