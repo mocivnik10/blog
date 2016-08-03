@@ -45,3 +45,12 @@
     <%= link_to "+ Dodaj članek", new_article_path %>
   <% end %>
 <% end %>
+
+<script>
+
+$('#articles-slider .carousel-inner > .item:first').addClass('active');
+  $('#articles-slider').carousel({
+    interval: 5000
+});
+
+</script>
