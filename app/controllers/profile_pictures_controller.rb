@@ -5,7 +5,7 @@ class ProfilePicturesController < ApplicationController
         avatar_id: params[:avatar_id],
         user_id: current_user.id
       )
-      flash[:notice] = 'Avatar updated.'
+      flash[:notice] = 'Profilna slika izbrana!'
       redirect_to :back
     else
       current_user.profile_picture.destroy
@@ -13,7 +13,7 @@ class ProfilePicturesController < ApplicationController
         avatar_id: params[:avatar_id],
         user_id: current_user.id
       )
-      flash[:notice] = 'Avatar updated.'
+      flash[:notice] = 'Profilna slika posodobljena!'
       redirect_to :back
     end
 
